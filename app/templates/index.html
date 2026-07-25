@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Prempeh | Web Developer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Matthew Prempeh</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/projects">Projects</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Matthew Prempeh</h1>
+            <p class="subtitle">Full Stack Web Developer crafting digital experiences</p>
+            <div class="hero-buttons">
+                <a href="/projects" class="btn primary">View My Work</a>
+                <a href="/contact" class="btn secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Placeholder for profile image -->
+            <img src="{{ url_for('static', filename='images/Snapchat-2085266678.jpg') }}" alt="Matthew Prempeh">
+        </div>
+    </header>
+
+    <section class="skills">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">HTML5 / CSS3</div>
+            <div class="skill-card">JavaScript / TypeScript</div>
+            <div class="skill-card">React / Next.js</div>
+            <div class="skill-card">Python / Flask</div>
+            <div class="skill-card">Node.js / Express</div>
+            <div class="skill-card">SQL / MongoDB</div>
+            <div class="skill-card">Tailwind / Bootstrap</div>
+            <div class="skill-card">Git </div>
+        </div>
+    </section>
+
+    <section class="featured-projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            {% for project in projects[:3] %}
+            <div class="project-card">
+                <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <p class="tech">{{ project.tech }}</p>
+                <a href="{{ project.link }}" class="btn small">View Project</a>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/projects" class="view-all">View All Projects →</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Matthew Prempeh. All rights reserved.</p>
+    </footer>
+</body>
+</html>
